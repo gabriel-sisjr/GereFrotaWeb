@@ -20,7 +20,7 @@ const MenuBar: React.FC = () => {
       <Profile>
         <ImgProfile>
           <img
-            src="https://avatars.githubusercontent.com/u/7799935?v=4"
+            src="https://avatars.githubusercontent.com/u/36143255?v=4"
             alt="Fulano da Silva"
           />
           <div>
