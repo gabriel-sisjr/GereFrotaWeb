@@ -3,7 +3,7 @@ import React from 'react';
 import TitlePages from 'src/components/TitlePages';
 import { Car } from 'src/styles/icons';
 
-import Button from 'src/components/Button';
+import Button from 'src/components/Form/Button';
 import {
   Container,
   ContainerTitle,

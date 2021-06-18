@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Form } from '@unform/web';
 
-import Input from 'src/components/Input';
-import TextArea from 'src/components/TextArea';
+import Input from 'src/components/Form/Input';
+import TextArea from 'src/components/Form/TextArea';
 
 export const Container = styled.div`
   display: flex;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import Input from 'src/components/Input';
 import { Form } from '@unform/web';
+
+import Input from 'src/components/Form/Input';
 
 export const Container = styled.div`
   display: flex;

@@ -11,7 +11,7 @@ import {
   Body,
   InputOdometro,
 } from './styles';
-import Input from 'src/components/Input';
+
 
 const PaginaRealizarVistoria: React.FC = () => {
   function handleSubmit(data: any): void {

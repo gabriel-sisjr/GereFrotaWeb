@@ -1,7 +1,7 @@
 import React from 'react';
 import { Register } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
-import Button from 'src/components/Button';
+import Button from 'src/components/Form/Button';
 import {
   Container,
   ContainerTitle,

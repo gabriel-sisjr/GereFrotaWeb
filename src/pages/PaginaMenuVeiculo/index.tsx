@@ -1,6 +1,6 @@
 import React from 'react';
 import ButtonMenu from 'src/components/ButtonMenu';
-import TitlePages from '../../components/TitlePages';
+import TitlePages from 'src/components/TitlePages';
 
 import {
   Car,
@@ -9,7 +9,7 @@ import {
   Register,
   RequestTools,
   Close,
-} from '../../styles/icons';
+} from 'src/styles/icons';
 import { Container, Body, ContainerTitle } from './styles';
 
 const PaginaMenuVeiculo: React.FC = () => {

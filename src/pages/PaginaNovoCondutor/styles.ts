@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Form } from '@unform/web';
 
-import SelectItems from 'src/components/SelectItems';
-import Input from 'src/components/Input';
+import SelectItems from 'src/components/Form/SelectItems';
+import Input from 'src/components/Form/Input';
 
 export const Container = styled.div`
   display: flex;
