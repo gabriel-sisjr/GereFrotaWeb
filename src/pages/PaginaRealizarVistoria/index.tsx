@@ -11,6 +11,7 @@ import {
   Body,
   InputOdometro,
 } from './styles';
+import Input from 'src/components/Input';
 
 const PaginaRealizarVistoria: React.FC = () => {
   function handleSubmit(data: any): void {
@@ -23,9 +24,9 @@ const PaginaRealizarVistoria: React.FC = () => {
       </ContainerTitle>
       <ContainerBody>
         <h1>ABT-001</h1>
-        <Body>
+        <Body onSubmit={handleSubmit}>
           <ContainerHeader>
-            <Header onSubmit={handleSubmit}>
+            <Header >
               <div>
                 <InputOdometro
                   name="Odometro"

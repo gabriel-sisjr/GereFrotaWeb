@@ -60,7 +60,7 @@ export const ContainerHeader = styled.div`
     height: 220px;
   }
 `;
-export const Header = styled(Form)`
+export const Header = styled.div`
   display: flex;
   margin: 16px 0px 24px 0px;
   flex-direction: column;
@@ -82,7 +82,7 @@ export const Header = styled(Form)`
     }
   }
 `;
-export const Body = styled.div`
+export const Body = styled(Form)`
   width: 100%;
   height: 100%;
   border: 1px solid var(--primary);
