@@ -23,37 +23,43 @@ const PaginaManutencao: React.FC = () => {
   const solicitacoes = [
     {
       numero: '001/2020',
-      status: 'Recebida',
+      status: 1,
+      statusDescricao: 'Recebida',
       remetente: '2º GBM - Estância',
       data: '22/01/2021',
     },
     {
       numero: '001/2020',
-      status: 'Recebida',
+      status: 3,
+      statusDescricao: 'Recebida',
       remetente: '2º GBM - Estância',
       data: '22/01/2021',
     },
     {
       numero: '001/2020',
-      status: 'Recebida',
+      status: 2,
+      statusDescricao: 'Recebida',
       remetente: '2º GBM - Estância',
       data: '22/01/2021',
     },
     {
       numero: '001/2020',
-      status: 'Recebida',
+      status: 1,
+      statusDescricao: 'Recebida',
       remetente: '2º GBM - Estância',
       data: '22/01/2021',
     },
     {
       numero: '001/2020',
-      status: 'Recebida',
+      status: 2,
+      statusDescricao: 'Recebida',
       remetente: '2º GBM - Estância',
       data: '22/01/2021',
     },
     {
       numero: '001/2020',
-      status: 'Recebida',
+      status: 2,
+      statusDescricao: 'Recebida',
       remetente: '2º GBM - Estância',
       data: '22/01/2021',
     },
@@ -89,6 +95,7 @@ const PaginaManutencao: React.FC = () => {
               <ListaSolicitacoes
                 numero={item.numero}
                 status={item.status}
+                statusDescricao={item.statusDescricao}
                 remetente={item.remetente}
                 data={item.data}
               />

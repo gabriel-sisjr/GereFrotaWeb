@@ -12,6 +12,7 @@ import PaginaListaVeiculos from 'src/pages/PaginaListaVeiculos';
 import PaginaListaCondutores from 'src/pages/PaginaListaCondutores';
 import PaginaMenuVeiculo from 'src/pages/PaginaMenuVeiculo';
 import PaginaRealizarVistoria from 'src/pages/PaginaRealizarVistoria';
+import PaginaManutencaoRecebida from 'src/pages/PaginaManutencaoRecebida';
 import { Container, Wrapper } from './styles';
 
 const Routes: React.FC = () => (
@@ -29,6 +30,10 @@ const Routes: React.FC = () => (
         <Route path="/novoCondutor" component={PaginaNovoCondutor} />
         <Route path="/registrarSaida" component={PaginaRegistrarSaída} />
         <Route path="/realizarVistoria" component={PaginaRealizarVistoria} />
+        <Route
+          path="/manutencaoRecebida"
+          component={PaginaManutencaoRecebida}
+        />
       </Switch>
     </Wrapper>
   </Container>

@@ -47,7 +47,7 @@ const MenuBar: React.FC = () => {
           <IconConductor />
           <span>Condutores</span>
         </MenuBottom>
-        <MenuBottom to="/realizarVistoria">
+        <MenuBottom to="/manutencaoRecebida">
           <IconChart />
           <span>Relatório</span>
         </MenuBottom>

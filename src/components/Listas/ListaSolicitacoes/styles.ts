@@ -1,7 +1,11 @@
-import styled from 'styled-components';
+/* eslint-disable no-nested-ternary */
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
-export const Container = styled(Link)`
+interface PropsContainer {
+  status: number;
+}
+export const Container = styled.div<PropsContainer>`
   width: 95%;
   height: 90px;
   display: flex;
@@ -9,7 +13,24 @@ export const Container = styled(Link)`
   margin-bottom: 18px;
   border: 4px solid var(--alert);
   border-radius: 8px;
-  text-decoration: none;
+
+  ${(props) =>
+    props.status === 1
+      ? css`
+          border: 4px solid var(--alert);
+        `
+      : props.status === 2
+      ? css`
+          border: 4px solid var(--atencao);
+        `
+      : props.status === 3
+      ? css`
+          border: 4px solid var(--confirm);
+        `
+      : css`
+          border: 4px solid var(--primary);
+        `}
+
   transition: transform 0.2s;
   &:hover {
     transform: translateX(10px);
@@ -41,6 +62,13 @@ export const Container = styled(Link)`
       align-items: center;
     }
   }
+`;
+
+export const ContainerItems = styled(Link)`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  text-decoration: none;
 `;
 export const ContainerNumero = styled.div`
   width: 40%;
