@@ -71,9 +71,11 @@ export const ContainerFiltro = styled.div`
 `;
 export const Filtro = styled(Form)`
   display: flex;
+  flex: 1;
   justify-content: space-between;
   align-items: center;
   margin: 16px 0px 24px 0px;
+  flex-wrap: wrap;
   span {
     font-size: 18px;
     color: var(--primary);

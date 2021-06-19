@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Form } from '@unform/web';
 
 import Input from 'src/components/Form/Input';
+import TextArea from 'src/components/Form/TextArea';
 
 export const Container = styled.div`
   display: flex;
@@ -110,4 +111,49 @@ export const ContainerButton = styled.div`
     justify-content: center;
     flex-direction: column;
   }
+`;
+
+export const ContainerTable = styled.table`
+  width: 95%;
+  margin-top: 16px;
+  font-size: 20px;
+  color: var(--primary);
+  border-bottom: 1px solid var(--placeholder);
+  td,
+  th {
+    text-align: center;
+    padding: 8px;
+  }
+`;
+export const ContainerForm = styled.div`
+  display: flex;
+  justify-content: space-around;
+  flex: 1;
+  width: 95%;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  div {
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-left: 8px;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--primary);
+    }
+  }
+`;
+
+export const DivText = styled.div`
+  width: 95%;
+  margin-top: 16px;
+`;
+
+export const InputDescricao = styled(TextArea)`
+  width: 100%;
+  height: 150px;
 `;

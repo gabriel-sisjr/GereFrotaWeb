@@ -1,14 +1,13 @@
 import React, { InputHTMLAttributes, useState, useRef, useEffect } from 'react';
 
 import { useField } from '@unform/core';
-import { Container } from './styles';
+import { InputCheck } from './styles';
 
 interface PropsCheck extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
 }
 
 const CheckBox: React.FC<PropsCheck> = ({ name, ...rest }) => {
-  const [check, isChecked] = useState(false);
   const { fieldName, registerField, defaultValue, error } = useField(name);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -21,9 +20,12 @@ const CheckBox: React.FC<PropsCheck> = ({ name, ...rest }) => {
   }, [fieldName, registerField]);
 
   return (
-    <Container>
-      <input type="checkbox" defaultValue={defaultValue} ref={inputRef} />
-    </Container>
+    <InputCheck
+      type="checkbox"
+      defaultValue={defaultValue}
+      ref={inputRef}
+      {...rest}
+    />
   );
 };
 

@@ -4,6 +4,7 @@ import { Survey } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
 import CheckBox from 'src/components/CheckBox';
 import Button from 'src/components/Form/Button';
+import { CamposVistoria, CamposForm } from './dataForm';
 import {
   Container,
   ContainerTitle,
@@ -13,12 +14,17 @@ import {
   Body,
   InputOdometro,
   ContainerButton,
+  ContainerTable,
+  ContainerForm,
+  DivText,
+  InputDescricao,
 } from './styles';
 
 const PaginaRealizarVistoria: React.FC = () => {
   function handleSubmit(data: any): void {
     console.log(data);
   }
+
   return (
     <Container>
       <ContainerTitle>
@@ -39,7 +45,35 @@ const PaginaRealizarVistoria: React.FC = () => {
               <h3>Marque Caso haja alguma alteração</h3>
             </Header>
           </ContainerHeader>
-          <CheckBox name="Check" />
+          <ContainerTable>
+            <tr>
+              <th />
+              <th>Lado Direito</th>
+              <th>Lado Esquerdo</th>
+            </tr>
+            {CamposVistoria.map((label) => (
+              <tr>
+                <th>{label}</th>
+                <th>
+                  <CheckBox name={`${label.replace(/\s/g, '_')}_direito`} />
+                </th>
+                <th>
+                  <CheckBox name={`${label.replace(/\s/g, '_')}_esquerdo`} />
+                </th>
+              </tr>
+            ))}
+          </ContainerTable>
+          <ContainerForm>
+            {CamposForm.map((label) => (
+              <div>
+                <CheckBox name={`${label.replace(/\s/g, '_')}`} />
+                <span> {label} </span>
+              </div>
+            ))}
+          </ContainerForm>
+          <DivText>
+            <InputDescricao name="Descricao" label="Descricao" />
+          </DivText>
           <ContainerButton>
             <Button type="submit">Cadastrar</Button>
             <Button>Voltar</Button>
