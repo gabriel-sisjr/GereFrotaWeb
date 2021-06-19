@@ -29,9 +29,7 @@ const PaginaRealizarVistoria: React.FC = () => {
             <Header >
               <div>
                 <InputOdometro
-                  name="Odometro"
-                  placeholder="45.600"
-                  label="Leitura do Odômetro"
+                  name="Odometro" placeholder="45.600" label="Leitura do Odômetro"
                 />
               </div>
               <h3>Marque Caso haja alguma alteração</h3>
