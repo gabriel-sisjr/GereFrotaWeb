@@ -95,3 +95,19 @@ export const InputOdometro = styled(Input)`
   width: 250px;
   height: 50px;
 `;
+
+export const ContainerButton = styled.div`
+  width: 95%;
+  height: 100px;
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-between;
+
+  @media (max-width: 920px) {
+    width: 95%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+`;

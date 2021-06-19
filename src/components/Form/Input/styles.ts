@@ -29,13 +29,13 @@ export const ContainerInput = styled.div<ContainerProps>`
     props.isFocused &&
     css`
       border: 3px solid var(--primary);
-  `}
+    `}
 
   ${(props) =>
     props.isField &&
     css`
       border: 3px solid var(--primary);
-  `}
+    `}
 
 
   input {
@@ -55,13 +55,16 @@ export const ContainerInput = styled.div<ContainerProps>`
     width: 24px;
     height: 24px;
 
-    ${(props) => props.isFocused && css`
-      color: var(--primary);
-    `}
+    ${(props) =>
+      props.isFocused &&
+      css`
+        color: var(--primary);
+      `}
 
-    ${(props) => props.isField && css`
-      color: var(--primary);
-    `}
-
+    ${(props) =>
+      props.isField &&
+      css`
+        color: var(--primary);
+      `}
   }
 `;

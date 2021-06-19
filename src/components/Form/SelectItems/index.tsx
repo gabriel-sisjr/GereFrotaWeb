@@ -33,7 +33,12 @@ const SelectItems: React.FC<SelectProps> = ({
     <Container>
       {title && <Title>{title}</Title>}
       <ContainerSelect>
-        <select className="select" {...rest} defaultValue={defaultValue}>
+        <select
+          className="select"
+          {...rest}
+          defaultValue={defaultValue}
+          ref={selectRef}
+        >
           <option selected>{rest.placeholder}</option>
           {options &&
             options.map(({ value, label }) => (

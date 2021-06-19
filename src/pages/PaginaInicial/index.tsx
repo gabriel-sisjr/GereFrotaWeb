@@ -77,7 +77,7 @@ const PaginaIncial: React.FC = () => {
           </ContainerFiltro>
           <Lista>
             {veiculos.map(({ placa, modelo, id }) => (
-<ListVeiculosUso modelo={modelo} placa={placa} id={id} />
+              <ListVeiculosUso modelo={modelo} placa={placa} id={id} />
             ))}
           </Lista>
         </Body>

@@ -39,6 +39,7 @@ const PaginaNovoVeiculo: React.FC = () => {
               title="Setor de Uso"
               placeholder="Administrativo"
               name="Setor"
+              options={valores}
             />
             <SelectUnidade
               title="Unidade do CBMSE"

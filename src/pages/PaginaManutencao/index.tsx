@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tools } from 'src/styles/icons';
 
+import TitlePages from 'src/components/TitlePages';
+import ListaSolicitacoes from 'src/components/Listas/ListaSolicitacoes';
 import {
   Container,
   ContainerTitle,
@@ -12,8 +14,6 @@ import {
   InputData,
   SelectStatus,
 } from './styles';
-import TitlePages from 'src/components/TitlePages';
-import ListaSolicitacoes from 'src/components/Listas/ListaSolicitacoes';
 
 const PaginaManutencao: React.FC = () => {
   function handleSubmit(data: any): void {

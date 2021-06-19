@@ -1,6 +1,9 @@
 import React from 'react';
 import { Car, ToAdd } from 'src/styles/icons';
 
+import TitlePages from 'src/components/TitlePages';
+import ListaVeiculosUnidade from 'src/components/Listas/ListaVeiculosUnidade';
+import ButtonLink from 'src/components/ButtonLink';
 import {
   Container,
   ContainerTitle,
@@ -12,9 +15,6 @@ import {
   ContainerButton,
   Select,
 } from './styles';
-import TitlePages from 'src/components/TitlePages';
-import ListaVeiculosUnidade from 'src/components/Listas/ListaVeiculosUnidade';
-import ButtonLink from 'src/components/ButtonLink';
 
 const PaginaListaVeiculos: React.FC = () => {
   function handleSubmit(data: any): void {
