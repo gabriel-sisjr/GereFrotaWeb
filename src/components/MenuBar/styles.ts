@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { Home, Tools, Car, Card, Chart } from '../../styles/icons';
 
@@ -119,7 +119,7 @@ export const ContainerBottom = styled.div`
   }
 `;
 
-export const MenuBottom = styled(Link)`
+export const MenuBottom = styled(NavLink)`
   text-decoration: none;
   color: var(--primary);
   width: 95%;

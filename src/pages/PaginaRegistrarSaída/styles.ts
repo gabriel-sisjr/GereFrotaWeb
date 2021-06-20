@@ -111,6 +111,7 @@ export const InputData = styled(Input)`
 `;
 export const DivText = styled.div`
   width: 95%;
+  margin-top: 16px;
   @media (max-width: 920px) {
     width: 90%;
   }

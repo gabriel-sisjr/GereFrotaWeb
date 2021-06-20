@@ -20,13 +20,21 @@ const PaginaMenuVeiculo: React.FC = () => {
       </ContainerTitle>
       <Body>
         <div>
-          <ButtonMenu icon={Survey}>Realizar Vistoria</ButtonMenu>
-          <ButtonMenu icon={GasPump}>Abastecer</ButtonMenu>
-          <ButtonMenu icon={Register}>Registrar Saída</ButtonMenu>
+          <ButtonMenu
+            name="Realizar Vistoria"
+            to="/realizarVistoria"
+            icon={Survey}
+          />
+          <ButtonMenu name=" Abastecer" to="" icon={GasPump} />
+          <ButtonMenu
+            name="Registrar Saída"
+            to="/registrarSaida"
+            icon={Register}
+          />
         </div>
         <div>
-          <ButtonMenu icon={RequestTools}>Solicitar Manutenção</ButtonMenu>
-          <ButtonMenu icon={Close}>Finalizar Uso</ButtonMenu>
+          <ButtonMenu name="Solicitar Manutenção" to="" icon={RequestTools} />
+          <ButtonMenu name="Finalizar Uso" to="" icon={Close} />
         </div>
       </Body>
     </Container>

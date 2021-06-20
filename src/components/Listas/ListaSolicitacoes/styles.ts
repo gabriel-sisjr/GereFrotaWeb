@@ -34,7 +34,6 @@ export const Container = styled.div<PropsContainer>`
   transition: transform 0.2s;
   &:hover {
     transform: translateX(10px);
-    border: 3px solid var(--primary);
     div {
       border-right: 2px solid var(--primary);
     }

@@ -31,7 +31,7 @@ const MenuBar: React.FC = () => {
         <SpanUnidade>SBMSE-Itabaiana</SpanUnidade>
       </Profile>
       <ContainerBottom>
-        <MenuBottom to="/">
+        <MenuBottom to="/home">
           <IconHome />
           <span>Página Inicial</span>
         </MenuBottom>

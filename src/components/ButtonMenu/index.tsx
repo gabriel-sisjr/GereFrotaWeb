@@ -1,20 +1,24 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 import { IconBaseProps } from 'react-icons';
+import { LinkProps } from 'react-router-dom';
 import { Container } from './styles';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface PropsLinks extends LinkProps {
   icon: React.ComponentType<IconBaseProps>;
+  to: string;
+  name: string;
 }
 
-const ButtonMenu: React.FC<ButtonProps> = ({
+const ButtonMenu: React.FC<PropsLinks> = ({
   icon: Icon,
-  children,
+  to,
+  name,
   ...rest
 }) => {
   return (
-    <Container type="button" {...rest}>
+    <Container to={to} {...rest}>
       <Icon />
-      {children}
+      <span>{name}</span>
     </Container>
   );
 };
