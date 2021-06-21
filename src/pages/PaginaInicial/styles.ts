@@ -16,6 +16,7 @@ export const Container = styled.div`
     margin-left: min(80px, max(175px, 41vw));
   }
 `;
+
 export const ContainerTitle = styled.div`
   margin-top: 24px;
   display: flex;
@@ -68,6 +69,7 @@ export const ContainerFiltro = styled.div`
     height: 220px;
   }
 `;
+
 export const Filtro = styled(Form)`
   display: flex;
   justify-content: space-between;
@@ -97,6 +99,7 @@ export const Lista = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: 24px;
+
   @media (max-width: 720px) {
     margin-top: 8px;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Survey } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
-import CheckBox from 'src/components/CheckBox';
+import CheckBox from 'src/components/Form/CheckBox';
 import Button from 'src/components/Form/Button';
 import { CamposVistoria, CamposForm } from './dataForm';
 import {

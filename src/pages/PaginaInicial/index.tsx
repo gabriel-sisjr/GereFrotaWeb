@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Home, Search } from 'src/styles/icons';
+import { Home, Search, Alert } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
+import ListaVazia from 'src/components/Listas/ListaVazia';
 import ListVeiculosUso from 'src/components/Listas/ListVeiculosUso';
 import {
   Container,
@@ -15,6 +16,13 @@ import {
   SelectStatus,
 } from './styles';
 
+interface PropsVeiculo {
+  id: number;
+  placa: string;
+  modelo: string;
+}
+type PropsArray = Array<PropsVeiculo>;
+
 const PaginaIncial: React.FC = () => {
   function handleSubmit(data: any): void {
     console.log(data);
@@ -26,30 +34,30 @@ const PaginaIncial: React.FC = () => {
     { value: 3, label: 'Em Manutenção' },
   ];
 
-  const veiculos = [
-    { placa: 'ABT-0323', modelo: 'Merceds Bens tl 032', id: 0 },
-    { placa: 'ABT-0013', modelo: 'Merceds Bens tl 032', id: 1 },
-    { placa: 'ABT-0001', modelo: 'Merceds Bens tl 032', id: 2 },
-    { placa: 'ABT-0123', modelo: 'Merceds Bens tl 032', id: 3 },
-    { placa: 'ABT-0321', modelo: 'Merceds Bens tl 032', id: 4 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 5 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 6 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 7 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 8 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 9 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 6 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 7 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 8 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 9 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 5 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 6 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 7 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 8 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 9 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 6 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 7 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 8 },
-    { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 9 },
+  const veiculos: PropsArray = [
+    // { placa: 'ABT-0323', modelo: 'Merceds Bens tl 032', id: 0 },
+    // { placa: 'ABT-0013', modelo: 'Merceds Bens tl 032', id: 1 },
+    // { placa: 'ABT-0001', modelo: 'Merceds Bens tl 032', id: 2 },
+    // { placa: 'ABT-0123', modelo: 'Merceds Bens tl 032', id: 3 },
+    // { placa: 'ABT-0321', modelo: 'Merceds Bens tl 032', id: 4 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 5 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 6 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 7 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 8 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 9 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 10 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 11 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 12 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 13 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 14 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 15 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 16 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 17 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 18 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 19 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 20 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 21 },
+    // { placa: 'ABT-0043', modelo: 'Merceds Bens tl 032', id: 22 },
   ];
 
   return (
@@ -76,9 +84,13 @@ const PaginaIncial: React.FC = () => {
             </Filtro>
           </ContainerFiltro>
           <Lista>
-            {veiculos.map(({ placa, modelo, id }) => (
-              <ListVeiculosUso modelo={modelo} placa={placa} id={id} />
-            ))}
+            {veiculos.length !== 0 ? (
+              veiculos.map(({ placa, modelo, id }) => (
+                <ListVeiculosUso modelo={modelo} placa={placa} id={id} />
+              ))
+            ) : (
+              <ListaVazia text="Não existe veículos cadastrados no sistema" />
+            )}
           </Lista>
         </Body>
       </ContainerBody>

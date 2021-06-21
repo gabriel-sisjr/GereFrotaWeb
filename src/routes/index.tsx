@@ -21,6 +21,7 @@ const Routes: React.FC = () => (
     <Wrapper>
       <MenuBar />
       <Switch>
+        <Route path="/" exact component={PaginaInicial} />
         <Route path="/home" exact component={PaginaInicial} />
         <Route path="/manutencoes" component={PaginaManutencao} />
         <Route path="/veiculos" component={PaginaListaVeiculos} />

@@ -28,5 +28,6 @@ export { BsTools as RequestTools } from 'react-icons/bs';
 export {
   IoMdAddCircle as ToAdd,
   IoMdCloseCircle as CloseAlert,
+  IoMdAlert as Alert,
 } from 'react-icons/io';
 export { MdDeleteForever as Delete } from 'react-icons/md';
