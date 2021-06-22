@@ -3,6 +3,7 @@ import { Tools } from 'src/styles/icons';
 
 import TitlePages from 'src/components/TitlePages';
 import ListaSolicitacoes from 'src/components/Listas/ListaSolicitacoes';
+import ListaVazia from 'src/components/Listas/ListaVazia';
 import {
   Container,
   ContainerTitle,
@@ -15,54 +16,63 @@ import {
   SelectStatus,
 } from './styles';
 
+interface PropsManut {
+  numero: string;
+  status: number;
+  statusDescricao: string;
+  remetente: string;
+  data: string;
+}
+
+type PropsArray = Array<PropsManut>;
 const PaginaManutencao: React.FC = () => {
   function handleSubmit(data: any): void {
     console.log(data);
   }
 
-  const solicitacoes = [
-    {
-      numero: '001/2020',
-      status: 1,
-      statusDescricao: 'Recebida',
-      remetente: '2º GBM - Estância',
-      data: '22/01/2021',
-    },
-    {
-      numero: '001/2020',
-      status: 3,
-      statusDescricao: 'Recebida',
-      remetente: '2º GBM - Estância',
-      data: '22/01/2021',
-    },
-    {
-      numero: '001/2020',
-      status: 2,
-      statusDescricao: 'Recebida',
-      remetente: '2º GBM - Estância',
-      data: '22/01/2021',
-    },
-    {
-      numero: '001/2020',
-      status: 1,
-      statusDescricao: 'Recebida',
-      remetente: '2º GBM - Estância',
-      data: '22/01/2021',
-    },
-    {
-      numero: '001/2020',
-      status: 2,
-      statusDescricao: 'Recebida',
-      remetente: '2º GBM - Estância',
-      data: '22/01/2021',
-    },
-    {
-      numero: '001/2020',
-      status: 2,
-      statusDescricao: 'Recebida',
-      remetente: '2º GBM - Estância',
-      data: '22/01/2021',
-    },
+  const solicitacoes: PropsArray = [
+    // {
+    //   numero: '001/2020',
+    //   status: 1,
+    //   statusDescricao: 'Recebida',
+    //   remetente: '2º GBM - Estância',
+    //   data: '22/01/2021',
+    // },
+    // {
+    //   numero: '001/2020',
+    //   status: 3,
+    //   statusDescricao: 'Recebida',
+    //   remetente: '2º GBM - Estância',
+    //   data: '22/01/2021',
+    // },
+    // {
+    //   numero: '001/2020',
+    //   status: 2,
+    //   statusDescricao: 'Recebida',
+    //   remetente: '2º GBM - Estância',
+    //   data: '22/01/2021',
+    // },
+    // {
+    //   numero: '001/2020',
+    //   status: 1,
+    //   statusDescricao: 'Recebida',
+    //   remetente: '2º GBM - Estância',
+    //   data: '22/01/2021',
+    // },
+    // {
+    //   numero: '001/2020',
+    //   status: 2,
+    //   statusDescricao: 'Recebida',
+    //   remetente: '2º GBM - Estância',
+    //   data: '22/01/2021',
+    // },
+    // {
+    //   numero: '001/2020',
+    //   status: 2,
+    //   statusDescricao: 'Recebida',
+    //   remetente: '2º GBM - Estância',
+    //   data: '22/01/2021',
+    // },
   ];
   const valores = [
     { value: 1, label: 'Recebida' },
@@ -91,15 +101,19 @@ const PaginaManutencao: React.FC = () => {
             </Filtro>
           </ContainerFiltro>
           <Lista>
-            {solicitacoes.map((item) => (
-              <ListaSolicitacoes
-                numero={item.numero}
-                status={item.status}
-                statusDescricao={item.statusDescricao}
-                remetente={item.remetente}
-                data={item.data}
-              />
-            ))}
+            {solicitacoes.length !== 0 ? (
+              solicitacoes.map((item) => (
+                <ListaSolicitacoes
+                  numero={item.numero}
+                  status={item.status}
+                  statusDescricao={item.statusDescricao}
+                  remetente={item.remetente}
+                  data={item.data}
+                />
+              ))
+            ) : (
+              <ListaVazia text="Não foram encontradas Solicitações de Manutenção!" />
+            )}
           </Lista>
         </Body>
       </ContainerBody>

@@ -4,6 +4,7 @@ import { Car, ToAdd } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
 import ListaVeiculosUnidade from 'src/components/Listas/ListaVeiculosUnidade';
 import ButtonLink from 'src/components/ButtonLink';
+import ListaVazia from 'src/components/Listas/ListaVazia';
 import {
   Container,
   ContainerTitle,
@@ -16,6 +17,14 @@ import {
   Select,
 } from './styles';
 
+interface PropsVeiculo {
+  placa: string;
+  unidade: string;
+  cidade: string;
+}
+
+type PropsArray = Array<PropsVeiculo>;
+
 const PaginaListaVeiculos: React.FC = () => {
   function handleSubmit(data: any): void {
     console.log(data);
@@ -27,57 +36,57 @@ const PaginaListaVeiculos: React.FC = () => {
     { value: 3, label: 'Finalizada' },
   ];
 
-  const veiculos = [
-    {
-      placa: 'ABT-0323',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      placa: 'ABT-0322',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
+  const veiculos: PropsArray = [
+    // {
+    //   placa: 'ABT-0323',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   placa: 'ABT-0322',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
   ];
   return (
     <Container>
@@ -99,13 +108,17 @@ const PaginaListaVeiculos: React.FC = () => {
             </Filtro>
           </ContainerFiltro>
           <Lista>
-            {veiculos.map(({ placa, unidade, cidade }) => (
-              <ListaVeiculosUnidade
-                placa={placa}
-                unidade={unidade}
-                cidade={cidade}
-              />
-            ))}
+            {veiculos.length !== 0 ? (
+              veiculos.map(({ placa, unidade, cidade }) => (
+                <ListaVeiculosUnidade
+                  placa={placa}
+                  unidade={unidade}
+                  cidade={cidade}
+                />
+              ))
+            ) : (
+              <ListaVazia text="Não existe veículos Cadastrados!" />
+            )}
           </Lista>
           <ContainerButton>
             <ButtonLink icon={ToAdd} nome="Novo Veículo" to="/novoVeiculo" />

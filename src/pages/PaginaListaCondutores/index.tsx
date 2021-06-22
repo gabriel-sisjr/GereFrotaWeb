@@ -4,6 +4,7 @@ import { Card, ToAdd, Search } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
 import ListaCondutores from 'src/components/Listas/ListaCondutores';
 import ButtonLink from 'src/components/ButtonLink';
+import ListaVazia from 'src/components/Listas/ListaVazia';
 import {
   Container,
   ContainerTitle,
@@ -17,6 +18,14 @@ import {
   SelectUnidade,
 } from './styles';
 
+interface PropsCondutor {
+  nome: string;
+  unidade: string;
+  cidade: string;
+}
+
+type PropsArray = Array<PropsCondutor>;
+
 const PaginaListaCondutores: React.FC = () => {
   function handleSubmit(data: any): void {
     console.log(data);
@@ -28,47 +37,47 @@ const PaginaListaCondutores: React.FC = () => {
     { value: 3, label: 'Finalizada' },
   ];
 
-  const condutores = [
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
-    {
-      nome: 'FULANO DA SILVA MELO',
-      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-      cidade: 'ESTÂNCIA',
-    },
+  const condutores: PropsArray = [
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
+    // {
+    //   nome: 'FULANO DA SILVA MELO',
+    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+    //   cidade: 'ESTÂNCIA',
+    // },
   ];
   return (
     <Container>
@@ -94,9 +103,17 @@ const PaginaListaCondutores: React.FC = () => {
             </Filtro>
           </ContainerFiltro>
           <Lista>
-            {condutores.map(({ nome, unidade, cidade }) => (
-              <ListaCondutores nome={nome} unidade={unidade} cidade={cidade} />
-            ))}
+            {condutores.length !== 0 ? (
+              condutores.map(({ nome, unidade, cidade }) => (
+                <ListaCondutores
+                  nome={nome}
+                  unidade={unidade}
+                  cidade={cidade}
+                />
+              ))
+            ) : (
+              <ListaVazia text="Não foi encontrado nenhum Condutor!" />
+            )}
           </Lista>
           <ContainerButton>
             <ButtonLink icon={ToAdd} nome="Novo Condutor" to="/novoCondutor" />

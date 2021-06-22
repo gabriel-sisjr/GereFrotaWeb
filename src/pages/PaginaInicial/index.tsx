@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Home, Search, Alert } from 'src/styles/icons';
+import { Home, Search } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
 import ListaVazia from 'src/components/Listas/ListaVazia';
 import ListVeiculosUso from 'src/components/Listas/ListVeiculosUso';
