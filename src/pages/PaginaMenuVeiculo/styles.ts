@@ -26,7 +26,7 @@ export const ContainerTitle = styled.div`
 `;
 export const Body = styled.div`
   width: 90%;
-  height: 100vh;
+  height: 90vh;
   border: 1px solid var(--primary);
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ export const Body = styled.div`
       width: 80%;
       margin-top: 0px;
 
-      button {
+      a {
         margin-top: 16px;
         width: 100%;
         height: 80px;

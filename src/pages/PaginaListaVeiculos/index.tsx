@@ -37,56 +37,56 @@ const PaginaListaVeiculos: React.FC = () => {
   ];
 
   const veiculos: PropsArray = [
-    // {
-    //   placa: 'ABT-0323',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
-    // {
-    //   placa: 'ABT-0322',
-    //   unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
-    //   cidade: 'ESTÂNCIA',
-    // },
+    {
+      placa: 'ABT-0323',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
+    {
+      placa: 'ABT-0322',
+      unidade: '2º AGRUPAMENTO BOMBEIRO MILITAR',
+      cidade: 'ESTÂNCIA',
+    },
   ];
   return (
     <Container>

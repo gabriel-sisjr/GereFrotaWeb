@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import TitlePages from 'src/components/TitlePages';
 import { Car } from 'src/styles/icons';
@@ -17,6 +18,8 @@ import {
 } from './styles';
 
 const PaginaNovoVeiculo: React.FC = () => {
+  const history = useHistory();
+
   const valores = [
     { value: 1, label: 'Ocioso' },
     { value: 2, label: 'Em Uso' },
@@ -26,6 +29,9 @@ const PaginaNovoVeiculo: React.FC = () => {
     console.log(data);
   }
 
+  function handleClick() {
+    history.push('/veiculos');
+  }
   return (
     <Container>
       <ContainerTitle>
@@ -102,7 +108,7 @@ const PaginaNovoVeiculo: React.FC = () => {
           </DivCampos>
           <ContainerButton>
             <Button type="submit">Cadastrar</Button>
-            <Button>Voltar</Button>
+            <Button onClick={handleClick}>Voltar</Button>
           </ContainerButton>
         </Body>
       </ContainerBody>

@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card } from 'src/styles/icons';
+import { useHistory } from 'react-router-dom';
 
+import { Card } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
 import Button from 'src/components/Form/Button';
 import {
@@ -23,8 +24,14 @@ import {
 } from './styles';
 
 const PaginaNovoCondutor: React.FC = () => {
+  const history = useHistory();
+
   function handleSubmit(data: any): void {
     console.log(data);
+  }
+
+  function handleClick() {
+    history.push('/condutores');
   }
   return (
     <Container>
@@ -82,7 +89,7 @@ const PaginaNovoCondutor: React.FC = () => {
           </DivCnh>
           <ContainerButton>
             <Button type="submit">Cadastrar</Button>
-            <Button>Voltar</Button>
+            <Button onClick={handleClick}>Voltar</Button>
           </ContainerButton>
         </Body>
       </ContainerBody>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Survey } from 'src/styles/icons';
 import TitlePages from 'src/components/TitlePages';
@@ -21,8 +22,13 @@ import {
 } from './styles';
 
 const PaginaRealizarVistoria: React.FC = () => {
+  const history = useHistory();
+
   function handleSubmit(data: any): void {
     console.log(data);
+  }
+  function handleClick() {
+    history.push('/menuVeiculo');
   }
 
   return (
@@ -76,7 +82,7 @@ const PaginaRealizarVistoria: React.FC = () => {
           </DivText>
           <ContainerButton>
             <Button type="submit">Cadastrar</Button>
-            <Button>Voltar</Button>
+            <Button onClick={handleClick}>Voltar</Button>
           </ContainerButton>
         </Body>
       </ContainerBody>

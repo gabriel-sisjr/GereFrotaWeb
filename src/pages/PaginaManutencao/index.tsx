@@ -31,48 +31,48 @@ const PaginaManutencao: React.FC = () => {
   }
 
   const solicitacoes: PropsArray = [
-    // {
-    //   numero: '001/2020',
-    //   status: 1,
-    //   statusDescricao: 'Recebida',
-    //   remetente: '2º GBM - Estância',
-    //   data: '22/01/2021',
-    // },
-    // {
-    //   numero: '001/2020',
-    //   status: 3,
-    //   statusDescricao: 'Recebida',
-    //   remetente: '2º GBM - Estância',
-    //   data: '22/01/2021',
-    // },
-    // {
-    //   numero: '001/2020',
-    //   status: 2,
-    //   statusDescricao: 'Recebida',
-    //   remetente: '2º GBM - Estância',
-    //   data: '22/01/2021',
-    // },
-    // {
-    //   numero: '001/2020',
-    //   status: 1,
-    //   statusDescricao: 'Recebida',
-    //   remetente: '2º GBM - Estância',
-    //   data: '22/01/2021',
-    // },
-    // {
-    //   numero: '001/2020',
-    //   status: 2,
-    //   statusDescricao: 'Recebida',
-    //   remetente: '2º GBM - Estância',
-    //   data: '22/01/2021',
-    // },
-    // {
-    //   numero: '001/2020',
-    //   status: 2,
-    //   statusDescricao: 'Recebida',
-    //   remetente: '2º GBM - Estância',
-    //   data: '22/01/2021',
-    // },
+    {
+      numero: '001/2020',
+      status: 1,
+      statusDescricao: 'Recebida',
+      remetente: '2º GBM - Estância',
+      data: '22/01/2021',
+    },
+    {
+      numero: '001/2020',
+      status: 3,
+      statusDescricao: 'Recebida',
+      remetente: '2º GBM - Estância',
+      data: '22/01/2021',
+    },
+    {
+      numero: '001/2020',
+      status: 2,
+      statusDescricao: 'Recebida',
+      remetente: '2º GBM - Estância',
+      data: '22/01/2021',
+    },
+    {
+      numero: '001/2020',
+      status: 1,
+      statusDescricao: 'Recebida',
+      remetente: '2º GBM - Estância',
+      data: '22/01/2021',
+    },
+    {
+      numero: '001/2020',
+      status: 2,
+      statusDescricao: 'Recebida',
+      remetente: '2º GBM - Estância',
+      data: '22/01/2021',
+    },
+    {
+      numero: '001/2020',
+      status: 2,
+      statusDescricao: 'Recebida',
+      remetente: '2º GBM - Estância',
+      data: '22/01/2021',
+    },
   ];
   const valores = [
     { value: 1, label: 'Recebida' },
