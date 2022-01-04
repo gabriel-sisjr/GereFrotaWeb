@@ -2,6 +2,7 @@ import { Stack } from '@chakra-ui/react';
 import { AiFillCar } from 'react-icons/ai';
 import { FaRegIdCard } from 'react-icons/fa';
 import { RiHome2Fill, RiPieChartLine, RiToolsLine } from 'react-icons/ri';
+import { BiBuildingHouse } from 'react-icons/bi';
 import { NavLink } from './NavLink';
 import { NavSection } from './NavSection';
 
@@ -15,6 +16,7 @@ export function SidebarNav() {
       </NavSection>
 
       <NavSection title="CADASTROS / LISTAS">
+        <NavLink icon={BiBuildingHouse} href="/unidades">Unidades</NavLink>
         <NavLink icon={AiFillCar} href="/veiculos" >Veículos</NavLink>
         <NavLink icon={FaRegIdCard} href="/condutores">Condutores</NavLink>
       </NavSection>
