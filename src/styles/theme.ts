@@ -1,6 +1,10 @@
-import { extendTheme } from '@chakra-ui/react';
+import { ChakraTheme, extendTheme } from '@chakra-ui/react';
 
-export const theme = extendTheme({
+const customTheme: Partial<ChakraTheme> = {
+  config: {
+    initialColorMode: 'dark',
+    useSystemColorMode: false,
+  },
   colors: {
     gray: {
       "900": "#181B23",
@@ -13,18 +17,16 @@ export const theme = extendTheme({
       "200": "#B3B5C6",
       "100": "#D1D2DC",
       "50": "#EEEEF2",
-    }
+    },
+    primary: "#03438B",
+    warning: "#E3DB0B",
+    danger: "#E63946",
+    sucess: "#358F43",
   },
   fonts: {
     heading: 'Roboto',
     body: 'Roboto',
   },
-  styles: {
-    global: {
-      body: {
-        bg: 'gray.900',
-        color: 'gray.50'
-      }
-    }
-  }
-})
+}
+
+export const theme = extendTheme(customTheme)

@@ -1,6 +1,7 @@
 import { Flex, useBreakpointValue, IconButton, Icon } from '@chakra-ui/react';
 import { RiMenuLine } from 'react-icons/ri';
 import { useSidebarDrawer } from '../../contexts/SidebarDrawerContext';
+import { ButtonTheme } from './ButtonTheme';
 import { Logo } from './Logo';
 import { NotificationNav } from './NotificationNav';
 import { Profile } from './Profile';
@@ -37,6 +38,7 @@ export function Header() {
       )}
       <Logo />
       <Flex align="center" ml="auto">
+        <ButtonTheme />
         <NotificationNav />
         <Profile showProfileData={isWideVersion} />
       </Flex>
