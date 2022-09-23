@@ -1,93 +1,77 @@
 import {
   Box,
+  Divider,
   Flex,
   Heading,
-  Button,
   Icon,
-  Divider,
   Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Text,
+  Th,
   Thead,
   Tr,
-  Th,
-  Td,
-  Tbody,
-  Checkbox,
-  Text,
-  useBreakpointValue
+  useColorModeValue
 } from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
-import Link from 'next/link'
-import { Header } from "../../components/Header";
-import { Pagination } from "../../components/Pagination";
-import { Sidebar } from "../../components/Sidebar";
+import Link from "next/link";
+import { FaRegIdCard } from "react-icons/fa";
+import { RiAddLine } from "react-icons/ri";
+import { ButtonDefault } from "~/components/Button/ButtonDefault";
+import { ButtonView } from "~/components/Button/ButtonView";
+import { Pagination } from "~/components/Pagination";
 
-export default function ListaCondutores() {
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
-
+export default function Conduntores() {
   return (
-    <Box>
-      <Header />
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6">
-        <Sidebar />
-
-        <Box flex="1" borderRadius={8} bg="gray.800" p="8">
-          <Flex mb="8" justify="space-between" align="center">
-            <Heading size="lg" fontWeight="normal">Condutores</Heading>
-
-            <Link href="condutores/create" passHref>
-              <Button
-                as="a"
-                size="sm"
-                fontSize="sm"
-                colorScheme="facebook"
-                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-              >
-                {isWideVersion ? 'Novo Condutor' : 'Novo'}
-              </Button>
-            </Link>
-          </Flex>
-          <Divider my="6" borderColor="gray.700" />
-          <Table colorScheme="whiteAlpha">
-            <Thead>
-              <Tr>
-                <Th px={["4", "4", "6"]} color="gray.300" w="8">
-                  <Checkbox colorScheme="facebook" />
-                </Th>
-                <Th>Condutor</Th>
-                {isWideVersion && <Th>Data de Cadastro</Th>}
-                <Th w="8"></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td px={["4", "4", "6"]}><Checkbox colorScheme="facebook" /></Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Nome do Condutor</Text>
-                    <Text fontSize="sm" color="gray.300">Patente</Text>
-                  </Box>
-                </Td>
-                {isWideVersion && <Td>04 de Abril de 2021</Td>}
-                <Td>
-                  <Button
-                    as="a"
-                    size="sm"
-                    fontSize="sm"
-                    colorScheme="whatsapp"
-                    leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
-                  >
-                    {isWideVersion ? 'Editar' : ''}
-                  </Button>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+    <Flex minH={'100vh'}
+      bg={useColorModeValue('white', 'gray.800')}
+      borderRadius={10}
+      boxShadow={'lg'} p={8}
+      alignItems={'center'}
+      justifyContent={'center'}>
+      <Box minH={'100vh'} w={'95%'}>
+        <Flex justify={'space-between'}>
+          <Heading size={'lg'}>Condutores</Heading>
+          <Link href="condutores/create" passHref >
+            <ButtonDefault name={'Novo Condutor'} iconName={RiAddLine} />
+          </Link>
+        </Flex>
+        <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+        <Box>
+          <TableContainer>
+            <Table colorScheme={useColorModeValue('gray', 'whiteAlpha')}>
+              <Thead>
+                <Tr>
+                  <Th>
+                    <Icon as={FaRegIdCard} fontSize={'xl'} />
+                  </Th>
+                  <Th>Status</Th>
+                  <Th>Data de Cadastro</Th>
+                  <Th>Ação</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr>
+                  <Td>
+                    <Icon as={FaRegIdCard} fontSize={'xl'} />
+                  </Td>
+                  <Td>
+                    <Text fontWeight={'bold'}>Condutor</Text>
+                    <Text fontSize={'sm'} color={'gray.500'}>Patente do Condutor</Text>
+                  </Td>
+                  <Td fontWeight={'bold'}>04 de Abril de 2021</Td>
+                  <Td>
+                    <Link href={'#'} passHref>
+                      <ButtonView />
+                    </Link>
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
+          </TableContainer>
           <Pagination />
         </Box>
-      </Flex>
-    </Box>
-  );
+      </Box>
+    </Flex >
+  )
 }

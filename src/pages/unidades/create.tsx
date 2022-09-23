@@ -1,43 +1,66 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Divider,
-  VStack,
-  SimpleGrid,
-  Button,
-  HStack
-} from "@chakra-ui/react";
-import Link from 'next/link';
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
-import { Input } from '../../components/Form/Input';
+import { Box, ButtonGroup, Divider, Flex, FormControl, FormLabel, Heading, HStack, Input, SimpleGrid, Spacer, Stack, useColorModeValue, VStack } from "@chakra-ui/react";
+import Link from "next/link";
+import { ButtonBack } from "~/components/Button/ButtonBack";
+import { ButtonCancel } from "~/components/Button/ButtonCancel";
+import { ButtonSave } from "~/components/Button/ButtonSave";
 
-export default function NovaUnidade() {
-  return (
-    <Box>
-      <Header />
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6">
-        <Sidebar />
-        <Box flex="1" borderRadius={8} bg="gray.800" p={["6", "8"]}>
-          <Heading size="lg" fontWeight="normal">Nova Unidade</Heading>
-          <Divider my="6" borderColor="gray.700" />
-          <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="nome" label="Nome da Unidade" />
-              <Input name="Sigla" label="Sigla da Unidade" />
-            </SimpleGrid>
-          </VStack>
-          <Flex mt="8" justify="flex-end">
-            <HStack>
-              <Link href="/unidades" passHref>
-                <Button as="a" colorScheme="whiteAlpha">Cancelar</Button>
-              </Link>
-              <Button colorScheme="facebook">Salvar</Button>
-            </HStack>
-          </Flex>
-        </Box>
-      </Flex>
-    </Box>
-  );
+export default function create() {
+    return (
+        <Flex minH={'100vh'} bg={useColorModeValue('white', 'gray.800')}
+            borderRadius={10} boxShadow={'lg'} p={8} alignItems={'center'}
+            justifyContent={'center'}>
+            <Box minH={'100vh'} w={'95%'} >
+                <Flex justify={'space-between'}>
+                    <Heading size={'lg'}> Nova Unidade</Heading>
+                    <Link href={'/unidades'} passHref>
+                        <ButtonBack />
+                    </Link>
+                </Flex>
+                <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+                <Box>
+                    <Stack spacing={8}>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>CNPJ</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                            <FormControl ml={8} w={["240px", "sm", "xl"]}>
+                                <FormLabel>Nome da Unidade</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["240px", "sm", "xl"]}>
+                                <FormLabel>Responsável pela Unidade</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>Telefone</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                        </Stack>
+                    </Stack>
+                    <Stack direction={["column", "row"]} spacing={8} mt={8}>
+                        <FormControl w={["240px", "sm", "xl"]}>
+                            <FormLabel>Endereço</FormLabel>
+                            <Input type="text" />
+                        </FormControl>
+                        <FormControl w={["100px"]}>
+                            <FormLabel>Número</FormLabel>
+                            <Input type="text" />
+                        </FormControl>
+                    </Stack>
+                    <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+                    <Flex mt="8" justify="flex-end">
+                        <ButtonGroup gap={2}>
+                            <Link href={'/unidades'}>
+                                <ButtonCancel name={"Cancelar"} />
+                            </Link>
+                            <ButtonSave name={" Salvar "} />
+                        </ButtonGroup>
+                    </Flex>
+                </Box>
+            </Box>
+        </Flex >
+    )
 }

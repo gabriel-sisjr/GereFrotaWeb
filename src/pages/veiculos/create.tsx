@@ -1,70 +1,104 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Divider,
-  VStack,
-  SimpleGrid,
-  Button,
-  HStack
-} from "@chakra-ui/react";
-import Link from 'next/link';
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
-import { Input } from '../../components/Form/Input';
+import { Box, Divider, Flex, FormControl, FormLabel, Heading, HStack, Input, Select, Stack, useColorModeValue } from "@chakra-ui/react";
+import Link from "next/link";
+import { ButtonBack } from "~/components/Button/ButtonBack";
+import { ButtonCancel } from "~/components/Button/ButtonCancel";
+import { ButtonSave } from "~/components/Button/ButtonSave";
 
-export default function NovoVeiculo() {
-  return (
-    <Box>
-      <Header />
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6">
-        <Sidebar />
-
-        <Box flex="1" borderRadius={8} bg="gray.800" p={["6", "8"]}>
-          <Heading size="lg" fontWeight="normal">Novo Veículo</Heading>
-
-          <Divider my="6" borderColor="gray.700" />
-
-          <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="setor" label="Setor de Uso" />
-              <Input name="unidade" label="Unidade do CBMSE" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="nomeclatura" label="Nomeclatura da Viatura" />
-              <Input name="tipo" label="Tipo de Veículo" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="marca" label="Marca do Veículo" />
-              <Input name="ano" label="Ano do Veículo" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="odometro" label="Leitura do Odômetro" />
-              <Input name="placa" label="Placa do Veículo" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="renavam" label="Renavam" />
-              <Input type="date" name="vencimentoIpva" label="Vencimento IPVA" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="numeroChassi" label="Número do Chassi" />
-              <Input name="valor" label="Valor do Veículo" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="volumeTanque" label="Volume do Tanque(Litros)" />
-              <Input name="status" label="Status do Veículo" />
-            </SimpleGrid>
-          </VStack>
-          <Flex mt="8" justify="flex-end">
-            <HStack>
-              <Link href="/veiculos" passHref>
-                <Button as="a" colorScheme="whiteAlpha">Cancelar</Button>
-              </Link>
-              <Button colorScheme="facebook">Salvar</Button>
-            </HStack>
-          </Flex>
-        </Box>
-      </Flex>
-    </Box>
-  );
+export default function create() {
+    return (
+        <Flex minH={'100vh'} bg={useColorModeValue('white', 'gray.800')}
+            borderRadius={10} boxShadow={'lg'} p={8} alignItems={'center'}
+            justifyContent={'center'}>
+            <Box minH={'100vh'} w={'95%'}>
+                <Flex justify={'space-between'}>
+                    <Heading size={'lg'}> Novo Veículo</Heading>
+                    <Link href={'/veiculos'} passHref>
+                        <ButtonBack />
+                    </Link>
+                </Flex>
+                <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+                <Box>
+                    <Stack spacing={8}>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["240px", "sm", "xl"]}>
+                                <FormLabel>Unidade do CBMSE</FormLabel>
+                                <Select placeholder={"select"}></Select>
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>Sigla do Veículo</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["240px", "sm", "xl"]}>
+                                <FormLabel>Tipo de Veículo</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>Ano</FormLabel>
+                                <Input type="date" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["240px", "sm", "xl"]}>
+                                <FormLabel>Marca</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>Chassi do veiculo</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Odômetro</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Placa</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Volume do Tanque</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Renavam</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Valor de compra</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Vencimento IPVA</FormLabel>
+                                <Input type="date" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Status Veículo</FormLabel>
+                                <Select placeholder={"select"}></Select>
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Valor atual do Veículo</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                        </Stack>
+                    </Stack>
+                    <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+                    <Flex mt="8" justify="flex-end">
+                        <HStack>
+                            <Link href={'/veiculos'}>
+                                <ButtonCancel name={"Cancelar"} />
+                            </Link>
+                            <ButtonSave name={" Salvar "} />
+                        </HStack>
+                    </Flex>
+                </Box>
+            </Box>
+        </Flex>
+    )
 }

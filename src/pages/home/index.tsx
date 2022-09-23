@@ -1,80 +1,80 @@
 import {
-  Flex,
   Box,
-  Heading,
-  Divider,
-  Table,
-  Text,
-  Thead,
-  Icon,
   Button,
-  useBreakpointValue,
-  Tr,
-  Th,
+  Divider,
+  Flex,
+  Heading,
+  Icon,
+  Table,
+  TableContainer,
+  Tbody,
   Td,
-  Tbody
+  Text,
+  Th,
+  Thead,
+  Tr,
+  useColorModeValue
 } from "@chakra-ui/react";
-import Link from 'next/link';
+import Link from "next/link";
 import { AiFillCar } from "react-icons/ai";
 import { RiSteering2Fill } from "react-icons/ri";
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
+import { Pagination } from "~/components/Pagination";
 
 export default function Home() {
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
   return (
-    <Box>
-      <Header />
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6">
-        <Sidebar />
 
-        <Box flex="1" borderRadius={8} bg="gray.800" p={["6", "8"]}>
-          <Flex mb="8" justify="space-between" align="center">
-            <Heading size="lg" fontWeight="normal">Veículos Disponíveis</Heading>
-          </Flex>
-          <Divider my="6" borderColor="gray.700" />
-
-          <Table colorScheme="whiteAlpha" >
-            <Thead>
-              <Tr>
-                <Th px={["4", "4", "6"]} color="gray.300" w="8"></Th>
-                <Th>Veículo</Th>
-                {isWideVersion && <Th>Modelo</Th>}
-                <Th textAlign="center">Ação</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td px={["4", "4", "6"]} w="8">
-                  <Icon as={AiFillCar} fontSize="20" />
-                </Td>
-                <Td>
-                  <Text fontWeight="bold">Placa do Veículo</Text>
-                </Td>
-                {isWideVersion && <Td>
-                  <Text fontWeight="bold">Modelo</Text>
-                </Td>}
-                <Td w="8">
-                  <Link href="home/menuVeiculo" passHref>
-                    <Button
-                      as="a"
-                      size="sm"
-                      fontSize="sm"
-                      colorScheme="facebook"
-                      leftIcon={<Icon as={RiSteering2Fill} fontSize={["20", "24"]} />}
-                    >
-                      {isWideVersion ? 'Usar Veículo' : ''}
-                    </Button>
-                  </Link>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+    <Flex minH={'100vh'}
+      bg={useColorModeValue('white', 'gray.800')}
+      borderRadius={10}
+      boxShadow={'lg'} p={8}
+      alignItems={'center'}
+      justifyContent={'center'}>
+      <Box minH={'100vh'} w={'95%'}>
+        <Heading size={'lg'}>Veículos Disponíveis</Heading>
+        <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+        <Box>
+          <TableContainer>
+            <Table colorScheme={useColorModeValue('gray', 'whiteAlpha')}>
+              <Thead>
+                <Tr>
+                  <Th><Icon as={AiFillCar} fontSize={'xl'} /></Th>
+                  <Th>Veículo</Th>
+                  <Th>Modelo do Veículo</Th>
+                  <Th>Ação</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr>
+                  <Td>
+                    <Icon as={AiFillCar} fontSize={'xl'} />
+                  </Td>
+                  <Td>
+                    <Text fontWeight={'bold'}>Placa do Veículo</Text>
+                  </Td>
+                  <Td>
+                    <Text fontWeight={'bold'}>Modelo</Text>
+                  </Td>
+                  <Td>
+                    <Link href={'home/menuVeiculo'} passHref>
+                      <Button as={'a'} size={'md'} fontSize={'sm'}
+                        colorScheme={'facebook'} disabled
+                        _disabled={{
+                          bg: 'facebook.500',
+                        }}
+                        _hover={{ bg: useColorModeValue('facebook.800', 'facebook.300') }}
+                        leftIcon={<Icon as={RiSteering2Fill} fontSize={'xl'} color={'white'} />}
+                      >
+                        <Text color={'white'}>Usar Veículo</Text>
+                      </Button>
+                    </Link>
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
+          </TableContainer>
+          <Pagination />
         </Box>
-      </Flex>
-    </Box>
-  );
+      </Box>
+    </Flex >
+  )
 }

@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react'
+import { Button, useColorModeValue } from '@chakra-ui/react'
 
 interface PaginationItemProps {
   number: number;
@@ -15,7 +15,7 @@ export function PaginationItem({ number, isCurrent = false }: PaginationItemProp
         colorScheme="facebook"
         disabled
         _disabled={{
-          bg: 'facebook.300',
+          bg: 'facebook.400',
           cursor: 'default'
         }}
       >
@@ -28,8 +28,8 @@ export function PaginationItem({ number, isCurrent = false }: PaginationItemProp
       size="sm"
       fontSize="xs"
       w="4"
-      bg="gray.700"
-      _hover={{ bg: 'gray.500' }}
+      bg={useColorModeValue('gray.300', 'gray.500')}
+      _hover={{ bg: useColorModeValue('gray.500', 'gray.700') }}
     >
       {number}
     </Button>

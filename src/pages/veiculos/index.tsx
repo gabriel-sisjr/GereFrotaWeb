@@ -1,83 +1,77 @@
 import {
-  Box, Flex, Heading, Button, Icon,
-  useBreakpointValue, Divider, Table,
-  Thead, Tr, Th, Checkbox, Tbody,
-  Td, Text,
-} from '@chakra-ui/react';
-import { Header } from '../../components/Header';
-import { Sidebar } from '../../components/Sidebar';
-import Link from 'next/link';
-import { RiAddLine, RiSearchLine } from 'react-icons/ri';
-import { Pagination } from '../../components/Pagination';
+  Box,
+  Divider,
+  Flex,
+  Heading,
+  Icon,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+  useColorModeValue
+} from "@chakra-ui/react";
+import Link from "next/link";
+import { AiFillCar } from "react-icons/ai";
+import { RiAddLine } from "react-icons/ri";
+import { ButtonDefault } from "~/components/Button/ButtonDefault";
+import { ButtonView } from "~/components/Button/ButtonView";
+import { Pagination } from "~/components/Pagination";
 
-
-export default function ListaVeiculos() {
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
+export default function Veiculos() {
   return (
-    <Box>
-      <Header />
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6">
-        <Sidebar />
-
-        <Box flex="1" borderRadius={8} bg="gray.800" p={["4", "6", "8"]}>
-          <Flex mb="8" justify="space-between" align="center">
-            <Heading size="lg" fontWeight="normal">Veículos da Frota</Heading>
-
-            <Link href="veiculos/create" passHref >
-              <Button
-                as="a"
-                size="sm"
-                fontSize="sm"
-                colorScheme="facebook"
-                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-              >
-                {isWideVersion ? 'Novo Veículo' : 'Novo'}
-              </Button>
-            </Link>
-          </Flex>
-          <Divider my="6" borderColor="gray.700" />
-
-          <Table colorScheme="whiteAlpha">
-            <Thead>
-              <Tr>
-                <Th px={["4", "4", "6"]} color="gray.300" w="8">
-                  <Checkbox colorScheme="facebook" />
-                </Th>
-                <Th >Veículo</Th>
-                <Th></Th>
-                <Th textAlign="center">Ações</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td px={["4", "4", "6"]}><Checkbox colorScheme="facebook" /></Td>
-                <Td>
-                  <Box>
-                    <Text fontWeight="bold">Placa do Veículo</Text>
-                    <Text fontSize="sm" color="gray.300">Unidade do Veículo</Text>
-                  </Box>
-                </Td>
-                <Td />
-                <Td w="8">
-                  <Button
-                    as="a"
-                    size="sm"
-                    fontSize="sm"
-                    colorScheme="whatsapp"
-                    leftIcon={<Icon as={RiSearchLine} fontSize="16" />}
-                  >
-                    {isWideVersion ? 'Visualizar' : ''}
-                  </Button>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
+    <Flex minH={'100vh'}
+      bg={useColorModeValue('white', 'gray.800')}
+      borderRadius={10}
+      boxShadow={'lg'} p={8}
+      alignItems={'center'}
+      justifyContent={'center'}>
+      <Box minH={'100vh'} w={'95%'}>
+        <Flex justify={'space-between'}>
+          <Heading size={'lg'}>Veículos</Heading>
+          <Link href="veiculos/create" passHref >
+            <ButtonDefault name={'Novo Veículo'} iconName={RiAddLine} />
+          </Link>
+        </Flex>
+        <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+        <Box>
+          <TableContainer>
+            <Table colorScheme={useColorModeValue('gray', 'whiteAlpha')}>
+              <Thead>
+                <Tr>
+                  <Th>
+                    <Icon as={AiFillCar} fontSize={'xl'} />
+                  </Th>
+                  <Th>Veículo</Th>
+                  <Th>Data do Cadastro</Th>
+                  <Th>Ação</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                <Tr>
+                  <Td>
+                    <Icon as={AiFillCar} fontSize={'xl'} />
+                  </Td>
+                  <Td>
+                    <Text fontWeight={'bold'}>Sigla de identificação</Text>
+                    <Text fontSize={'sm'} color={'gray.500'}>Placa do veículo</Text>
+                  </Td>
+                  <Td fontWeight={'bold'}>04 de Abril de 2022</Td>
+                  <Td>
+                    <Link href={'#'} passHref>
+                      <ButtonView />
+                    </Link>
+                  </Td>
+                </Tr>
+              </Tbody>
+            </Table>
+          </TableContainer>
           <Pagination />
         </Box>
-      </Flex>
-    </Box>
-  );
+      </Box>
+    </Flex >
+  )
 }

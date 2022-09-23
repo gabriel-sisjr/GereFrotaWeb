@@ -1,58 +1,75 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Divider,
-  VStack,
-  SimpleGrid,
-  Button,
-  HStack,
-} from "@chakra-ui/react";
-import Link from 'next/link';
-import { Header } from "../../components/Header";
-import { Sidebar } from "../../components/Sidebar";
-import { Input } from '../../components/Form/Input';
+import { Box, Divider, Flex, FormControl, FormLabel, Heading, HStack, Input, Select, Stack, useColorModeValue } from "@chakra-ui/react";
+import Link from "next/link";
+import { ButtonBack } from "~/components/Button/ButtonBack";
+import { ButtonCancel } from "~/components/Button/ButtonCancel";
+import { ButtonSave } from "~/components/Button/ButtonSave";
 
-export default function NovoCondutor() {
-  return (
-    <Box>
-      <Header />
-      <Flex w="100%" my="6" maxW={1480} mx="auto" px="6">
-        <Sidebar />
-
-        <Box flex="1" borderRadius={8} bg="gray.800" p={["6", "8"]}>
-          <Heading size="lg" fontWeight="normal">Novo Condutor</Heading>
-
-          <Divider my="6" borderColor="gray.700" />
-
-          <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="nome" label="Nome Completo" />
-              <Input name="matricula" label="Número de Matrícula" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="cpf" label="CPF" />
-              <Input name="unidade" label="Unidade do CBMSE" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="cnh" label="Número da CNH" />
-              <Input type="date" name="vencimento" label="Vencimento da CNH" />
-            </SimpleGrid>
-            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
-              <Input name="categoria" label="Categoria" />
-              <Input type="tel" name="fone" label="Telefone" />
-            </SimpleGrid>
-          </VStack>
-          <Flex mt="8" justify="flex-end">
-            <HStack>
-              <Link href="/condutores" passHref>
-                <Button as="a" colorScheme="whiteAlpha">Cancelar</Button>
-              </Link>
-              <Button colorScheme="facebook">Salvar</Button>
-            </HStack>
-          </Flex>
-        </Box>
-      </Flex>
-    </Box>
-  );
+export default function create() {
+    return (
+        <Flex minH={'100vh'} bg={useColorModeValue('white', 'gray.800')} borderRadius={10} boxShadow={'lg'} p={8}
+            alignItems={'center'} justifyContent={'center'}>
+            <Box minH={'100vh'} w={'95%'}>
+                <Flex justify={'space-between'}>
+                    <Heading size={'lg'}> Novo Condutor</Heading>
+                    <Link href={'/condutores'} passHref>
+                        <ButtonBack />
+                    </Link>
+                </Flex>
+                <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+                <Box>
+                    <Stack spacing={8}>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>Matrícula</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl w={["240px", "sm", "xl"]}>
+                                <FormLabel>Unidade do CBMSE</FormLabel>
+                                <Select placeholder={"select"}></Select>
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["240px", "sm", "xl"]}>
+                                <FormLabel>Nome Completo</FormLabel>
+                                <Input type="text" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>CPF</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Número da CNH</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                            <FormControl w={["150px", "sm", "250px"]}>
+                                <FormLabel>Vencimento da CNH</FormLabel>
+                                <Input type="date" />
+                            </FormControl>
+                            <FormControl w={["100px"]}>
+                                <FormLabel>Categoria</FormLabel>
+                                <Select placeholder={"A"}></Select>
+                            </FormControl>
+                        </Stack>
+                        <Stack direction={["column", "row"]} spacing={8}>
+                            <FormControl w={["150px", "sm", "200px"]}>
+                                <FormLabel>Telefone</FormLabel>
+                                <Input type="number" />
+                            </FormControl>
+                        </Stack>
+                    </Stack>
+                    <Divider w={'100%'} my={8} borderColor={useColorModeValue('gray.500', 'gray.700')} />
+                    <Flex mt="8" justify="flex-end">
+                        <HStack>
+                            <Link href={'/condutores'}>
+                                <ButtonCancel name={"Cancelar"} />
+                            </Link>
+                            <ButtonSave name={" Salvar "} />
+                        </HStack>
+                    </Flex>
+                </Box>
+            </Box>
+        </Flex>
+    )
 }

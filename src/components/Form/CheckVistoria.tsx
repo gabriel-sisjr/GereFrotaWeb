@@ -11,9 +11,9 @@ interface CheckboxProps extends ChakraCheckboxProps {
 
 export function CheckVistoria({ label, ...rest }: CheckboxProps) {
   return (
-    <HStack>
-      <ChakraCheckbox colorScheme="facebook" {...rest} />
-      <Text fontSize="sm">{label}</Text>
+    <HStack spacing={"8"}>
+      <ChakraCheckbox size={"lg"} colorScheme={"facebook"} {...rest} />
+      <Text fontWeight={"bold"}>{label}</Text>
     </HStack>
   );
 }
